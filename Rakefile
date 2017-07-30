@@ -181,6 +181,7 @@ task :online do
       down = false
     else
       sleep 1
+      down = false
     end
   end
 end
