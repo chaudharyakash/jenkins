@@ -9,8 +9,8 @@ def build_root
 end
 
 def mirror
-  #"http://mirrors.jenkins-ci.org"
-  "http://mirror.xmission.com/jenkins"
+  "http://mirrors.jenkins-ci.org"
+  #"http://mirror.xmission.com/jenkins"
 end
 
 def oneops
@@ -18,12 +18,12 @@ def oneops
 end
 
 def updates
-  #"http://updates.jenkins-ci.org/stable"
-  "http://mirror.xmission.com/jenkins/updates"
+  "http://updates.jenkins-ci.org/stable"
+  #"http://mirror.xmission.com/jenkins/updates"
 end
 
 def version
-  "1.651.3"
+  "latest"
 end
 
 ENV['JENKINS_HOME'] = build_root
@@ -32,7 +32,7 @@ ENV['JENKINS_URL'] = ENV['JENKINS_URL'] || "http://localhost:#{ENV['JENKINS_PORT
 
 desc "install jenkins war"
 task :war do
-  url = "https://updates.jenkins-ci.org/download/war/1.651.3/jenkins.war"
+  url = "#{mirror}/war-stable/#{version}/jenkins.war"
   puts "Downloading jenkins war: #{url}"
   File.open("jenkins.war", "wb") do |war_file|
     open(url, 'rb') do |read_file|
