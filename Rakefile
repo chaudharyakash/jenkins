@@ -178,9 +178,9 @@ task :online do
     `java -jar #{CLI_LOCATION} wait-node-online "" > /dev/null 2>&1`
     if $? == 0
       puts "Jenkins server is online"
+      down = false
     else
       sleep 1
-      down = false
     end
   end
 end
