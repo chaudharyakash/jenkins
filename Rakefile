@@ -23,7 +23,7 @@ def updates
 end
 
 def version
-  "latest"
+  "1.651.3"
 end
 
 ENV['JENKINS_HOME'] = build_root
@@ -32,7 +32,7 @@ ENV['JENKINS_URL'] = ENV['JENKINS_URL'] || "http://localhost:#{ENV['JENKINS_PORT
 
 desc "install jenkins war"
 task :war do
-  url = "#{mirror}/war-stable/#{version}/jenkins.war"
+  url = "https://updates.jenkins-ci.org/download/war/1.651.3/jenkins.war"
   puts "Downloading jenkins war: #{url}"
   File.open("jenkins.war", "wb") do |war_file|
     open(url, 'rb') do |read_file|
