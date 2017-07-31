@@ -48,8 +48,8 @@ task :plugins do
   IO.readlines('plugins.txt').each do |p|
     p.chomp!
     name, ver = p.split(':')
-    url = "#{mirror}/plugins/#{name}/#{ver || 'latest'}/#{name}.hpi"
-    #url = "#{mirror}/plugins/#{p}/latest/#{p}.hpi"
+    #url = "#{mirror}/plugins/#{name}/#{ver || 'latest'}/#{name}.hpi"
+    url = "#{mirror}/plugins/#{p}/latest/#{p}.hpi"
     puts "Downloading plugin: #{url}"
     File.open("#{build_root}/plugins/#{p}.jpi", "wb") do |plugin_file|
       open(url, 'rb') do |read_file|
